@@ -2,7 +2,10 @@ import os
 from functools import wraps
 from azure.servicebus import ServiceBusMessage, ServiceBusReceiveMode
 from azure.servicebus.aio import ServiceBusClient
+from dotenv import load_dotenv
 
+# Load environment variables from .env file
+load_dotenv()
 
 AZURE_SERVICE_BUS = {
     "ConnectionString": os.getenv("SERVICE_BUS_CONNECTION_STR"),

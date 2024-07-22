@@ -27,8 +27,10 @@ async def process_message(msg):
 
 
 def receive_messages():
-    loop = asyncio.get_event_loop()
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
     loop.run_until_complete(message_bus.start_consuming(process_message))
+    loop.run_forever()
 
 
 def start_background_task():
